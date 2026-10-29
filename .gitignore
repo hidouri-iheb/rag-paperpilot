@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+.cache/
+
+# Secrets  .env.example is still committed.
+.env
+
+# Data: PDFs and indexes are never committed (licensing + size).
+# data/papers.yaml
+data/pdfs/
+data/processed/
+data/index/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
