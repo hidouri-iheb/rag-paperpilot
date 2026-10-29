@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Corrective RAG research assistant over AI/ML papers with verified page-level citations"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pydantic-settings>=2.16.2",
+]
 
 [project.scripts]
 paperpilot = "paperpilot:main"
