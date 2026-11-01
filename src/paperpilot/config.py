@@ -36,6 +36,8 @@ class Settings(BaseSettings):
     embedding_model: str = "BAAI/bge-small-en-v1.5"
     reranker_model: str = "BAAI/bge-reranker-base"
     qdrant_collection: str = "paperpilot_chunks"
+    embedding_query_prefix: str = "Represent this sentence for searching relevant passages: "
+    embedding_max_tokens: int = 512
 
     # --- Phase 5: retrieval (flags are used by the ablation) ---
     vector_top_k: int = 20
@@ -44,6 +46,7 @@ class Settings(BaseSettings):
     final_top_k: int = 5
     use_bm25: bool = True
     use_reranker: bool = True
+    rerank_candidates: int = 20  # fused results sent to the reranker
 
     # --- Phase 7: generation (model names are set in .env, never hardcoded) ---
     gemini_api_key: SecretStr | None = None
@@ -55,8 +58,8 @@ class Settings(BaseSettings):
 
     # --- Phase 8: Corrective RAG ---
     use_crag: bool = True
-    grade_high: float = 0.7  # placeholder: tuned on the eval set in Phase 8
-    grade_low: float = 0.2  # placeholder: tuned on the eval set in Phase 8
+    grade_high: float = 0.95  # placeholder: tuned on the eval set in Phase 8
+    grade_low: float = 0.05  # placeholder: tuned on the eval set in Phase 8
     max_retries: int = 1
 
     # --- Derived paths (computed from data_dir, so one setting moves them all) ---

@@ -1,0 +1,65 @@
+# draft: hints are phrases from the answer, find_gold.py turns them into gold pages
+
+questions:
+  - { id: q01, category: numbers, paper: "1706.03762", hints: ["n = 6"],
+      question: "How many layers does the Transformer encoder have?" }
+  - { id: q02, category: factual, paper: "2103.00020", hints: ["400 million"],
+      question: "What dataset was CLIP trained on?" }
+  - { id: q03, category: method, paper: "1707.06347", hints: ["clipped surrogate"],
+      question: "How does PPO clip the policy update?" }
+  - { id: q04, category: method, paper: "2106.09685", hints: ["trainable rank decomposition"],
+      question: "Which weights does LoRA freeze and what does it train instead?" }
+  - { id: q05, category: factual, paper: "2305.14314", hints: ["normalfloat"],
+      question: "What 4-bit data type does QLoRA introduce?" }
+  - { id: q06, category: factual, paper: "2005.11401", hints: ["dense passage retriever"],
+      question: "What retriever does the original RAG model use?" }
+  - { id: q07, category: method, paper: "2004.04906", hints: ["in-batch negatives"],
+      question: "How does DPR use negatives when training its encoders?" }
+  - { id: q08, category: method, paper: "2004.12832", hints: ["maxsim"],
+      question: "How does ColBERT's late interaction score a document?" }
+  - { id: q09, category: method, paper: "2212.10496", hints: ["hypothetical document"],
+      question: "What does HyDE generate before retrieving documents?" }
+  - { id: q10, category: factual, paper: "2307.03172", hints: ["beginning or end"],
+      question: "Where in a long context do language models use information best?" }
+  - { id: q11, category: method, paper: "2310.11511", hints: ["reflection tokens"],
+      question: "What are reflection tokens in Self-RAG?" }
+  - { id: q12, category: method, paper: "2401.15884", hints: ["ambiguous"],
+      question: "What actions does CRAG take based on its retrieval evaluator?" }
+  - { id: q13, category: factual, paper: "2309.15217", hints: ["faithfulness"],
+      question: "Which metrics does RAGAS use to evaluate RAG pipelines?" }
+  - { id: q14, category: comparison, paper: "1901.04085", hints: ["ms marco"],
+      question: "How much does BERT re-ranking improve over BM25 on MS MARCO?" }
+  - { id: q15, category: numbers, paper: "2005.14165", hints: ["175 billion"],
+      question: "How many parameters does GPT-3 have?" }
+  - { id: q16, category: numbers, paper: "2203.15556", hints: ["1.4 trillion"],
+      question: "How many training tokens was Chinchilla trained on?" }
+  - { id: q17, category: method, paper: "1810.04805", hints: ["next sentence prediction"],
+      question: "What pre-training tasks does BERT use?" }
+  - { id: q18, category: method, paper: "2201.11903", hints: ["intermediate reasoning steps"],
+      question: "What is chain-of-thought prompting?" }
+  - { id: q19, category: method, paper: "2305.18290", hints: ["classification loss"],
+      question: "How does DPO avoid training an explicit reward model?" }
+  - { id: q20, category: method, paper: "2203.02155", hints: ["three steps"],
+      question: "What are the steps of InstructGPT's training method?" }
+  - { id: q21, category: comparison, paper: "2307.09288", hints: ["breadth"],
+      question: "How does rejection sampling differ from PPO in Llama 2's fine-tuning?" }
+  - { id: q22, category: method, paper: "2010.11929", hints: ["flattened 2d patches"],
+      question: "How does ViT turn an image into a sequence of tokens?" }
+  - { id: q23, category: factual, paper: "1512.03385", hints: ["degradation problem"],
+      question: "What problem do residual connections in ResNet address?" }
+  - { id: q24, category: method, paper: "1312.5602", hints: ["experience replay"],
+      question: "How does DQN stabilise training on Atari?" }
+  - { id: q25, category: method, paper: "1801.01290", hints: ["maximum entropy"],
+      question: "What objective does Soft Actor-Critic maximise?" }
+
+  # on-topic but not in the library: the system should refuse these
+  - { id: u01, category: factual, answerable: false,
+      question: "What learning rate was used to train GPT-4?" }
+  - { id: u02, category: method, answerable: false,
+      question: "How does Mamba's selective state space model work?" }
+  - { id: u03, category: numbers, answerable: false,
+      question: "What context length does Llama 3 support?" }
+  - { id: u04, category: method, answerable: false,
+      question: "How does Mixtral route tokens to its experts?" }
+  - { id: u05, category: method, answerable: false,
+      question: "How does DINOv2 train its self-supervised vision features?" }

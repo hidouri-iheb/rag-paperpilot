@@ -1,0 +1,3220 @@
+{
+  "date": "20261031-175951",
+  "main_model": "gemini-3.5-flash-lite",
+  "light_model": "gemini-3.1-flash-lite",
+  "grade_high": 0.95,
+  "grade_low": 0.05,
+  "summary": {
+    "vector": {
+      "answered": 0.76,
+      "cited_gold": 0.64,
+      "refusal_acc": 1.0,
+      "citation_validity": 0.8918918918918919,
+      "faithfulness": 0.8421052631578947,
+      "llm_calls_per_q": 1,
+      "paths": {
+        "direct": 19,
+        "refused": 11
+      },
+      "errors": 0
+    },
+    "hybrid": {
+      "answered": 0.76,
+      "cited_gold": 0.6,
+      "refusal_acc": 1.0,
+      "citation_validity": 0.8974358974358975,
+      "faithfulness": 1.0,
+      "llm_calls_per_q": 1,
+      "paths": {
+        "direct": 19,
+        "refused": 11
+      },
+      "errors": 0
+    },
+    "hybrid+rerank": {
+      "answered": 0.96,
+      "cited_gold": 0.96,
+      "refusal_acc": 1.0,
+      "citation_validity": 0.84,
+      "faithfulness": 0.8333333333333334,
+      "llm_calls_per_q": 1,
+      "paths": {
+        "direct": 24,
+        "refused": 6
+      },
+      "errors": 0
+    },
+    "hybrid+rerank+crag": {
+      "answered": 1.0,
+      "cited_gold": 0.96,
+      "refusal_acc": 1.0,
+      "citation_validity": 0.8367346938775511,
+      "faithfulness": 0.88,
+      "llm_calls_per_q": 1.6333333333333333,
+      "paths": {
+        "direct": 24,
+        "corrected": 1,
+        "refused": 5
+      },
+      "errors": 0
+    }
+  },
+  "rows": {
+    "vector": [
+      {
+        "id": "q01",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The Transformer encoder is composed of a stack of N = 6 identical layers.",
+        "citations": [
+          {
+            "chunk_id": "1706.03762:p3:c0",
+            "arxiv_id": "1706.03762",
+            "title": "Attention Is All You Need",
+            "year": 2017,
+            "page": 3,
+            "quote": "The encoder is composed of a stack of N = 6 identical layers.",
+            "url": "https://arxiv.org/pdf/1706.03762#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q02",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "the provided excerpts mention that a CLIP baseline was trained on the YFCC100M dataset, but they do not explicitly state the complete or primary dataset CLIP was trained on overall"
+        ],
+        "llm_calls": 1,
+        "answer": "The provided excerpts mention that a CLIP baseline was trained on the YFCC100M dataset, but they do not explicitly state the complete or primary dataset CLIP was trained on overall.",
+        "citations": [
+          {
+            "chunk_id": "2103.00020:p7:c1",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 7,
+            "quote": "we trained a CLIP ResNet-50 on the same YFCC100M dataset that Visual N-Grams was trained on",
+            "url": "https://arxiv.org/pdf/2103.00020#page=7"
+          }
+        ]
+      },
+      {
+        "id": "q03",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "The surrogate objective uses the term clip(rt, 1 - epsilon, 1 + epsilon)At within a minimum function to penalize changes that move the ratio away from 1."
+        ],
+        "llm_calls": 1,
+        "answer": "PPO clips the policy update by utilizing a surrogate objective that incorporates a clipped probability ratio function, specifically using the term clip(rt, 1 - epsilon, 1 + epsilon)At within a minimum function to penalize changes that move the ratio away from 1.",
+        "citations": [
+          {
+            "chunk_id": "1707.06347:p4:c0",
+            "arxiv_id": "1707.06347",
+            "title": "Proximal Policy Optimization Algorithms",
+            "year": 2017,
+            "page": 4,
+            "quote": "L CLIP = Et[min(rtAt, clip(rt, 1 , 1 + )At)]",
+            "url": "https://arxiv.org/pdf/1707.06347#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q04",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 4,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "LoRA freezes the pre-trained model and shared model weights. Instead of training all parameters, it trains the injected, much smaller low-rank matrices (or rank decomposition matrices), such as matrices A and B.",
+        "citations": [
+          {
+            "chunk_id": "2106.09685:p18:c3",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 18,
+            "quote": "the pre-trained model stays frozen for all tasks",
+            "url": "https://arxiv.org/pdf/2106.09685#page=18"
+          },
+          {
+            "chunk_id": "2106.09685:p2:c2",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 2,
+            "quote": "We can freeze the shared model and efficiently switch tasks by replacing the matrices A and B in Figure 1",
+            "url": "https://arxiv.org/pdf/2106.09685#page=2"
+          },
+          {
+            "chunk_id": "2106.09685:p2:c2",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 2,
+            "quote": "Instead, we only optimize the injected, much smaller low-rank matrices.",
+            "url": "https://arxiv.org/pdf/2106.09685#page=2"
+          },
+          {
+            "chunk_id": "2106.09685:p6:c7",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 6,
+            "quote": "LoRA adds trainable pairs of rank decomposition matrices in parallel to existing weight matrices.",
+            "url": "https://arxiv.org/pdf/2106.09685#page=6"
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "QLoRA introduces the 4-bit NormalFloat (NF4) data type, which is information-theoretically optimal for zero-centered normally distributed data."
+        ],
+        "llm_calls": 1,
+        "answer": "QLoRA introduces the 4-bit NormalFloat (NF4) data type, which is information-theoretically optimal for zero-centered normally distributed data.",
+        "citations": [
+          {
+            "chunk_id": "2305.14314:p4:c1",
+            "arxiv_id": "2305.14314",
+            "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+            "year": 2023,
+            "page": 4,
+            "quote": "4-bit NormalFloat (NF4) quantization",
+            "url": "https://arxiv.org/pdf/2305.14314#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q06",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q07",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts do not contain enough information to explain how DPR uses negatives when training its encoders, except for mentioning the use of \"negative passages for each question\" and \"in-batch negatives.\"",
+        "citations": [
+          {
+            "chunk_id": "2004.04906:p4:c0",
+            "arxiv_id": "2004.04906",
+            "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+            "year": 2020,
+            "page": 4,
+            "quote": "negative passages for each question.",
+            "url": "https://arxiv.org/pdf/2004.04906#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q08",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q09",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q10",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 1,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q11",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Self-RAG, reflection tokens are special tokens added to the original vocabulary that allow the model to learn to retrieve, generate, and critique text passages and its own generation. There are four types of reflection tokens used: Retrieve (for retrieval-on-demand), ISREL (evaluating passage relevance), ISSUP (evaluating whether the response is supported by the passage), and ISUSE (evaluating the overall utility of the response). These tokens are used to evaluate retrieval utility, critique relevance and support, and enable the tailoring of language model behaviors at test time.",
+        "citations": [
+          {
+            "chunk_id": "2310.11511:p10:c5",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 10,
+            "quote": "newly added special tokens, called reflection tokens.",
+            "url": "https://arxiv.org/pdf/2310.11511#page=10"
+          },
+          {
+            "chunk_id": "2310.11511:p4:c0",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 4,
+            "quote": "Four types of reflection tokens used in SELF-RAG.",
+            "url": "https://arxiv.org/pdf/2310.11511#page=4"
+          },
+          {
+            "chunk_id": "2310.11511:p10:c5",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 10,
+            "quote": "SELF-RAG further enables the tailoring of LM behaviors at test time by leveraging reflection tokens.",
+            "url": "https://arxiv.org/pdf/2310.11511#page=10"
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 4,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Based on the retrieval evaluator's confidence degree, CRAG triggers three actions: Correct, Incorrect, or Ambiguous. If 'Correct' is triggered, the retrieved documents are refined into precise knowledge strips through decomposition, filtering, and recomposition. If 'Incorrect' is triggered, the retrieved documents are discarded, and web searches are used instead for corrections. If 'Ambiguous' is triggered, it combines both the refined internal knowledge and external web search knowledge.",
+        "citations": [
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "The relevance score is quantified into a total of three confidence degrees and then triggered the corresponding actions: {Correct, Incorrect, Ambiguous}",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Incorrect is triggered, the retrieved documents will be discarded.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "Eventually, when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts do not specify the exact names of the metrics used by RAGAS, as they only mention that RAGAS provides a suite of metrics to evaluate different dimensions such as retrieval quality, the LLM's faithfulness, and generation quality without relying on ground truth human annotations.",
+        "citations": [
+          {
+            "chunk_id": "2309.15217:p1:c1",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 1,
+            "quote": "With Ragas, we put forward a suite of metrics which can be used to evaluate these different dimensions",
+            "url": "https://arxiv.org/pdf/2309.15217#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q14",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The excerpts state that the BERT-based passage re-ranking system is the top entry in the MS MARCO leaderboard, outperforming the previous state of the art by 27% (relative) in MRR@10.",
+        "citations": [
+          {
+            "chunk_id": "1901.04085:p1:c0",
+            "arxiv_id": "1901.04085",
+            "title": "Passage Re-ranking with BERT",
+            "year": 2019,
+            "page": 1,
+            "quote": "outperforming the previous state of the art by 27% (relative) in MRR@10",
+            "url": "https://arxiv.org/pdf/1901.04085#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "GPT-3 has 175 billion parameters.",
+        "citations": [
+          {
+            "chunk_id": "2106.09685:p9:c1",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 9,
+            "quote": "GPT-3 (Brown et al., 2020) is the largest single Transformer language model trained to-date with 175B parameters.",
+            "url": "https://arxiv.org/pdf/2106.09685#page=9"
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Chinchilla was trained on 1.4 trillion tokens.",
+        "citations": [
+          {
+            "chunk_id": "2203.15556:p3:c0",
+            "arxiv_id": "2203.15556",
+            "title": "Training Compute-Optimal Large Language Models",
+            "year": 2022,
+            "page": 3,
+            "quote": "|Chinchilla|70 Billion|1.4 Trillion|",
+            "url": "https://arxiv.org/pdf/2203.15556#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts do not specify the exact pre-training tasks used by BERT, only mentioning that the model is trained on unlabeled data over different pre-training tasks during the pre-training step.",
+        "citations": [
+          {
+            "chunk_id": "1810.04805:p3:c2",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 3,
+            "quote": "During pre-training, the model is trained on unlabeled data over different pre-training tasks.",
+            "url": "https://arxiv.org/pdf/1810.04805#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q18",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Chain-of-thought prompting is a general approach inspired by directions such as prompting, natural language explanations, program synthesis, and numeric and logical reasoning. It is an approach for facilitating reasoning in language models that allows models to decompose multi-step problems into intermediate steps, provides an interpretable window into model behavior, and can be used for tasks like math word problems, commonsense reasoning, and symbolic manipulation.",
+        "citations": [
+          {
+            "chunk_id": "2201.11903:p24:c0",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 24,
+            "quote": "Chain-of-thought prompting is a general approach that is inspired by several prior directions: prompting, natural language explanations, program synthesis/execution, numeric and logical reasoning, and intermediate language steps.",
+            "url": "https://arxiv.org/pdf/2201.11903#page=24"
+          },
+          {
+            "chunk_id": "2201.11903:p3:c1",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 3,
+            "quote": "2. Second, a chain of thought provides an interpretable window into the behavior of the model",
+            "url": "https://arxiv.org/pdf/2201.11903#page=3"
+          },
+          {
+            "chunk_id": "2201.11903:p3:c1",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 3,
+            "quote": "3. Third, chain-of-thought reasoning can be used for tasks such as math word problems, commonsense reasoning, and symbolic manipulation",
+            "url": "https://arxiv.org/pdf/2201.11903#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "DPO avoids training an explicit reward model by using a change of variables to define the preference loss directly as a function of the policy. It bypasses fitting an explicit reward and performing reinforcement learning by using a single maximum likelihood objective (or binary cross-entropy objective), producing the optimal policy to an implicit reward function.",
+        "citations": [
+          {
+            "chunk_id": "2305.18290:p2:c3",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "DPO uses a change of variables to define the preference loss as a function of the policy directly",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          },
+          {
+            "chunk_id": "2305.18290:p5:c4",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 5,
+            "quote": "DPO is able to bypass both fitting an explicit reward and performing RL to learn the policy using a single maximum likelihood objective",
+            "url": "https://arxiv.org/pdf/2305.18290#page=5"
+          },
+          {
+            "chunk_id": "2305.18290:p2:c3",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "DPO can therefore optimize a policy using a simple binary cross entropy objective, producing the optimal policy to an implicit reward function fit to the preference data.",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts do not detail all the steps of InstructGPT's training method, only mentioning that the first model was trained via supervised learning using bootstrap prompts written by labelers and API user prompts.",
+        "citations": [
+          {
+            "chunk_id": "2203.02155:p7:c0",
+            "arxiv_id": "2203.02155",
+            "title": "Training language models to follow instructions with human feedback",
+            "year": 2022,
+            "page": 7,
+            "quote": "To train the very first InstructGPT models, we asked labelers to write prompts themselves.",
+            "url": "https://arxiv.org/pdf/2203.02155#page=7"
+          },
+          {
+            "chunk_id": "2203.02155:p26:c3",
+            "arxiv_id": "2203.02155",
+            "title": "Training language models to follow instructions with human feedback",
+            "year": 2022,
+            "page": 26,
+            "quote": "was used to train the first InstructGPT model via supervised learning",
+            "url": "https://arxiv.org/pdf/2203.02155#page=26"
+          }
+        ]
+      },
+      {
+        "id": "q21",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 1,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q22",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "To turn an image into a sequence of tokens, the Vision Transformer reshapes the 2D image into a sequence of flattened 2D patches. It then flattens the patches and maps them to the Transformer's latent vector size using a trainable linear projection.",
+        "citations": [
+          {
+            "chunk_id": "2010.11929:p3:c2",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "we flatten the patches and map to D dimensions with a trainable linear projection",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q23",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Residual connections address the degradation problem, where accuracy gets saturated and then degrades as network depth increases, allowing networks to successfully obtain accuracy gains from increased depth.",
+        "citations": [
+          {
+            "chunk_id": "1512.03385:p5:c6",
+            "arxiv_id": "1512.03385",
+            "title": "Deep Residual Learning for Image Recognition",
+            "year": 2015,
+            "page": 5,
+            "quote": "This indicates that the degradation problem is well addressed in this setting and we manage to obtain accuracy gains from increased depth.",
+            "url": "https://arxiv.org/pdf/1512.03385#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q25",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Soft Actor-Critic is trained to maximize the entropy in addition to the standard return, learning stochastic policies via a maximum entropy objective.",
+        "citations": [
+          {
+            "chunk_id": "1801.01290:p8:c1",
+            "arxiv_id": "1801.01290",
+            "title": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
+            "year": 2018,
+            "page": 8,
+            "quote": "Note that the policy is trained to maximize also the entropy",
+            "url": "https://arxiv.org/pdf/1801.01290#page=8"
+          },
+          {
+            "chunk_id": "1801.01290:p7:c3",
+            "arxiv_id": "1801.01290",
+            "title": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
+            "year": 2018,
+            "page": 7,
+            "quote": "Soft actor-critic learns stochastic policies via a maximum entropy objective.",
+            "url": "https://arxiv.org/pdf/1801.01290#page=7"
+          }
+        ]
+      },
+      {
+        "id": "u01",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u02",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u03",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u04",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u05",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "q01",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The Transformer encoder is composed of a stack of N = 6 identical layers.",
+        "citations": [
+          {
+            "chunk_id": "1706.03762:p3:c0",
+            "arxiv_id": "1706.03762",
+            "title": "Attention Is All You Need",
+            "year": 2017,
+            "page": 3,
+            "quote": "The encoder is composed of a stack of N = 6 identical layers.",
+            "url": "https://arxiv.org/pdf/1706.03762#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q02",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The excerpts mention that CLIP was trained on a custom dataset, and also discuss experiments where a CLIP ResNet-50 was trained on the YFCC100M dataset and a filtered subset of YFCC100M.",
+        "citations": [
+          {
+            "chunk_id": "2103.00020:p44:c5",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 44,
+            "quote": "To study whether our custom dataset is critical to the performance of CLIP, we trained a model on a filtered subset of the YFCC100M dataset",
+            "url": "https://arxiv.org/pdf/2103.00020#page=44"
+          },
+          {
+            "chunk_id": "2103.00020:p7:c1",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 7,
+            "quote": "we trained a CLIP ResNet-50 on the same YFCC100M dataset that Visual N-Grams was trained on",
+            "url": "https://arxiv.org/pdf/2103.00020#page=7"
+          }
+        ]
+      },
+      {
+        "id": "q03",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "PPO clips the policy update by modifying the surrogate objective with a clipped probability ratio. Specifically, it uses a clipped surrogate objective that removes the incentive for moving the probability ratio outside of the interval [1 - epsilon, 1 + epsilon].",
+        "citations": [
+          {
+            "chunk_id": "1707.06347:p3:c0",
+            "arxiv_id": "1707.06347",
+            "title": "Proximal Policy Optimization Algorithms",
+            "year": 2017,
+            "page": 3,
+            "quote": "modifies the surrogate objective by clipping the probability ratio, which removes the incentive for moving rt outside of the interval [1 − ϵ, 1 + ϵ ]",
+            "url": "https://arxiv.org/pdf/1707.06347#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q04",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "LoRA keeps the pre-trained weights frozen (or the shared model/base model) and instead optimizes injected, much smaller low-rank matrices (such as the rank decomposition matrices of the dense layers' change during adaptation).",
+        "citations": [
+          {
+            "chunk_id": "2106.09685:p2:c2",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 2,
+            "quote": "We can freeze the shared model and efficiently switch tasks by replacing the matrices A and B in Figure 1",
+            "url": "https://arxiv.org/pdf/2106.09685#page=2"
+          },
+          {
+            "chunk_id": "2106.09685:p2:c2",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 2,
+            "quote": "we only optimize the injected, much smaller low-rank matrices.",
+            "url": "https://arxiv.org/pdf/2106.09685#page=2"
+          },
+          {
+            "chunk_id": "2106.09685:p2:c1",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 2,
+            "quote": "keeping the pre-trained weights frozen",
+            "url": "https://arxiv.org/pdf/2106.09685#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "QLOstensibly introduces the 4-bit NormalFloat (NF4) data type.",
+        "citations": [
+          {
+            "chunk_id": "2305.14314:p4:c1",
+            "arxiv_id": "2305.14314",
+            "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+            "year": 2023,
+            "page": 4,
+            "quote": "4-bit NormalFloat (NF4) quantization",
+            "url": "https://arxiv.org/pdf/2305.14314#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q06",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q07",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "DPR is trained using an in-batch negative setting alongside one additional BM25 negative passage per question.",
+        "citations": [
+          {
+            "chunk_id": "2004.04906:p5:c1",
+            "arxiv_id": "2004.04906",
+            "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+            "year": 2020,
+            "page": 5,
+            "quote": "trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question.",
+            "url": "https://arxiv.org/pdf/2004.04906#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q08",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q09",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q10",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 1,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q11",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Self-RAG, reflection tokens are newly added special tokens (predicted alongside next tokens from the original vocabulary) that allow the language model to learn to retrieve, generate, and critique text passages and its own generation. They are used to decide the need for retrieval, assess generation quality, and enable controllable generation and customizable behaviors at test time. There are four types of reflection tokens: Retrieve (determining if retrieval is necessary), ISREL (assessing if a passage provides useful information), ISSUP (assessing if statements are supported by evidence), and ISUSE (evaluating if the response is useful).",
+        "citations": [
+          {
+            "chunk_id": "2310.11511:p10:c5",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 10,
+            "quote": "newly added special tokens, called reflection tokens",
+            "url": "https://arxiv.org/pdf/2310.11511#page=10"
+          },
+          {
+            "chunk_id": "2310.11511:p3:c3",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 3,
+            "quote": "reflection tokens in SELF-RAG enable controllable generation at inference",
+            "url": "https://arxiv.org/pdf/2310.11511#page=3"
+          },
+          {
+            "chunk_id": "2310.11511:p4:c0",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 4,
+            "quote": "Four types of reflection tokens used in SELF-RAG",
+            "url": "https://arxiv.org/pdf/2310.11511#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 5,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Based on its retrieval evaluator, CRAG quantifies a confidence degree that triggers three possible knowledge retrieval actions: Correct, Incorrect, and Ambiguous. If the \"Correct\" action is triggered, retrieved documents are refined through knowledge decomposition, filtering, and recomposition. If the \"Incorrect\" action is triggered, the retrieved documents are discarded and web searches are used instead as complementary knowledge sources. If the \"Ambiguous\" action is triggered (when the evaluator is not confident), both processed knowledge types from Correct and Incorrect are combined.",
+        "citations": [
+          {
+            "chunk_id": "2401.15884:p2:c1",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 2,
+            "quote": "A confidence degree is quantified based on which different knowledge retrieval actions of {Correct, Incorrect, Ambiguous} can be triggered.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=2"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Incorrect is triggered, the retrieved documents will be discarded.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "Instead, web searches are resorted to and regarded as complementary knowledge sources for corrections",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "Eventually, when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q14",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 2,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts show that on the MS MARCO development set, BM25 (Lucene, no tuning) achieves an MRR@10 of 16.7, whereas BERT Base achieves 34.7 and BERT Large achieves 36.5, demonstrating a substantial improvement.",
+        "citations": [
+          {
+            "chunk_id": "1901.04085:p3:c0",
+            "arxiv_id": "1901.04085",
+            "title": "Passage Re-ranking with BERT",
+            "year": 2019,
+            "page": 3,
+            "quote": "|BM25 (Lucene, no tuning)|16.7|16.5|12.3|",
+            "url": "https://arxiv.org/pdf/1901.04085#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "GPT-3 has 175 billion (175B) parameters.",
+        "citations": [
+          {
+            "chunk_id": "2106.09685:p8:c2",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 8,
+            "quote": "GPT-3 with 175 billion parameters.",
+            "url": "https://arxiv.org/pdf/2106.09685#page=8"
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Chinchilla was trained on 1.4 trillion tokens.",
+        "citations": [
+          {
+            "chunk_id": "2203.15556:p9:c0",
+            "arxiv_id": "2203.15556",
+            "title": "Training Compute-Optimal Large Language Models",
+            "year": 2022,
+            "page": 9,
+            "quote": "training a model on the larger end of this range—70B parameters—for 1.4T tokens",
+            "url": "https://arxiv.org/pdf/2203.15556#page=9"
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts mention that BERT is trained on unlabeled data over different pre-training tasks, specifically noting the Masked LM and the Masking Procedure.",
+        "citations": [
+          {
+            "chunk_id": "1810.04805:p3:c2",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 3,
+            "quote": "During pre-training, the model is trained on unlabeled data over different pre-training tasks.",
+            "url": "https://arxiv.org/pdf/1810.04805#page=3"
+          },
+          {
+            "chunk_id": "1810.04805:p12:c0",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 12,
+            "quote": "Masked LM and the Masking Procedure",
+            "url": "https://arxiv.org/pdf/1810.04805#page=12"
+          }
+        ]
+      },
+      {
+        "id": "q18",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Chain-of-thought prompting is an approach that elicits reasoning in large language models by generating a series of reasoning steps that lead to the final output. It can be elicited simply by prompting an off-the-shelf language model, or when demonstrations of chain-of-thought reasoning are provided in exemplars for few-shot prompting. It mimics a step-by-step thought process and facilitates multi-step reasoning.",
+        "citations": [
+          {
+            "chunk_id": "2201.11903:p2:c4",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 2,
+            "quote": "reasoning steps that lead to the final output, and we refer to this approach as chain-of-thought prompting",
+            "url": "https://arxiv.org/pdf/2201.11903#page=2"
+          },
+          {
+            "chunk_id": "2201.11903:p3:c0",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 3,
+            "quote": "language models can generate chains of thought if demonstrations of chain-of-thought reasoning are provided in the exemplars for few-shot prompting.",
+            "url": "https://arxiv.org/pdf/2201.11903#page=3"
+          },
+          {
+            "chunk_id": "2201.11903:p9:c0",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 9,
+            "quote": "chain-of-thought reasoning is elicited simply by prompting an off-the-shelf language model.",
+            "url": "https://arxiv.org/pdf/2201.11903#page=9"
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "DPO avoids training an explicit reward model by using a change of variables to define the preference loss directly as a function of the policy. It bypasses fitting an explicit reward and performing reinforcement learning by utilizing a single maximum likelihood objective and a simple binary cross-entropy objective.",
+        "citations": [
+          {
+            "chunk_id": "2305.18290:p2:c3",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "DPO uses a change of variables to define the preference loss as a function of the policy directly",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          },
+          {
+            "chunk_id": "2305.18290:p5:c4",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 5,
+            "quote": "DPO is able to bypass both fitting an explicit reward and performing RL to learn the policy using a single maximum likelihood objective.",
+            "url": "https://arxiv.org/pdf/2305.18290#page=5"
+          },
+          {
+            "chunk_id": "2305.18290:p2:c3",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "DPO can therefore optimize a policy using a simple binary cross entropy objective",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "InstructGPT's training method involves three steps: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on this reward model.",
+        "citations": [
+          {
+            "chunk_id": "2203.02155:p3:c0",
+            "arxiv_id": "2203.02155",
+            "title": "Training language models to follow instructions with human feedback",
+            "year": 2022,
+            "page": 3,
+            "quote": "supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on this reward model",
+            "url": "https://arxiv.org/pdf/2203.02155#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q21",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Llama 2's fine-tuning, rejection sampling and PPO mainly differ in breadth and depth. In terms of breadth, rejection sampling explores K samples for a given prompt, whereas PPO performs only one generation. Regarding depth, during PPO training at step t, the sample depends on the updated model policy from step t-1 following the previous step's gradient update. Conversely, in rejection sampling fine-tuning, all outputs are sampled using the initial policy to collect a new dataset prior to applying fine-tuning like SFT.",
+        "citations": [
+          {
+            "chunk_id": "2307.09288:p14:c1",
+            "arxiv_id": "2307.09288",
+            "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+            "year": 2023,
+            "page": 14,
+            "quote": "in Rejection Sampling, the model explores K samples for a given prompt, while only one generation is done for PPO.",
+            "url": "https://arxiv.org/pdf/2307.09288#page=14"
+          },
+          {
+            "chunk_id": "2307.09288:p14:c1",
+            "arxiv_id": "2307.09288",
+            "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+            "year": 2023,
+            "page": 14,
+            "quote": "in PPO, during training at step t the sample is a function of the updated model policy from t − 1 after the gradient update of the previous step.",
+            "url": "https://arxiv.org/pdf/2307.09288#page=14"
+          },
+          {
+            "chunk_id": "2307.09288:p14:c1",
+            "arxiv_id": "2307.09288",
+            "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+            "year": 2023,
+            "page": 14,
+            "quote": "In Rejection Sampling fine-tuning, we sample all the outputs given the initial policy of our model to collect a new dataset, before applying the fine-tuning similar to SFT.",
+            "url": "https://arxiv.org/pdf/2307.09288#page=14"
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "To turn an image into a sequence of tokens, ViT reshapes the 2D image into a sequence of flattened 2D patches. It then flattens these patches and maps them to D dimensions using a trainable linear projection to create patch embeddings.",
+        "citations": [
+          {
+            "chunk_id": "2010.11929:p3:c2",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "we flatten the patches and map to D dimensions with a trainable linear projection",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q23",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Residual connections in ResNet address the degradation problem, ensuring that it is well addressed and allowing the network to obtain accuracy gains from increased depth.",
+        "citations": [
+          {
+            "chunk_id": "1512.03385:p5:c6",
+            "arxiv_id": "1512.03385",
+            "title": "Deep Residual Learning for Image Recognition",
+            "year": 2015,
+            "page": 5,
+            "quote": "This indicates that the degradation problem is well addressed in this setting and we manage to obtain accuracy gains from increased depth.",
+            "url": "https://arxiv.org/pdf/1512.03385#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q25",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Soft Actor-Critic is trained to maximize both the expected return and the entropy.",
+        "citations": [
+          {
+            "chunk_id": "1801.01290:p8:c1",
+            "arxiv_id": "1801.01290",
+            "title": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
+            "year": 2018,
+            "page": 8,
+            "quote": "Note that the policy is trained to maximize also the entropy",
+            "url": "https://arxiv.org/pdf/1801.01290#page=8"
+          }
+        ]
+      },
+      {
+        "id": "u01",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u02",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u03",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u04",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u05",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      }
+    ],
+    "hybrid+rerank": [
+      {
+        "id": "q01",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "other models discussed in the library may have different configurations, such as 12 layers in the baseline text-to-text transformer or 24 layers in the larger variant"
+        ],
+        "llm_calls": 1,
+        "answer": "According to the original Transformer model, the encoder is composed of a stack of 6 identical layers (N = 6). However, other models discussed in the library may have different configurations, such as 12 layers in the baseline text-to-text transformer or 24 layers in the larger variant.",
+        "citations": [
+          {
+            "chunk_id": "1706.03762:p3:c0",
+            "arxiv_id": "1706.03762",
+            "title": "Attention Is All You Need",
+            "year": 2017,
+            "page": 3,
+            "quote": "Encoder: The encoder is composed of a stack of N = 6 identical layers.",
+            "url": "https://arxiv.org/pdf/1706.03762#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q02",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "CLIP was trained on a new dataset of 400 million image and text pairs created from publicly available data on the internet, as well as text paired with images found on the internet.",
+        "citations": [
+          {
+            "chunk_id": "2103.00020:p2:c4",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 2,
+            "quote": "we create a new dataset of 400 million (image, text) pairs",
+            "url": "https://arxiv.org/pdf/2103.00020#page=2"
+          },
+          {
+            "chunk_id": "2103.00020:p20:c2",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 20,
+            "quote": "CLIP is trained on text paired with images on the internet.",
+            "url": "https://arxiv.org/pdf/2103.00020#page=20"
+          }
+        ]
+      },
+      {
+        "id": "q03",
+        "answerable": true,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "q04",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "LoRA freezes the pre-trained model weights while training rank decomposition matrices or injected low-rank matrices instead.",
+        "citations": [
+          {
+            "chunk_id": "2106.09685:p1:c1",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 1,
+            "quote": "freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer",
+            "url": "https://arxiv.org/pdf/2106.09685#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "QLoRA introduces the 4-bit NormalFloat (NF4) data type, which is described as information-theoretically optimal for normally distributed weights.",
+        "citations": [
+          {
+            "chunk_id": "2305.14314:p1:c1",
+            "arxiv_id": "2305.14314",
+            "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+            "year": 2023,
+            "page": 1,
+            "quote": "4-bit NormalFloat (NF4), a new data type that is information theoretically optimal for normally distributed weights",
+            "url": "https://arxiv.org/pdf/2305.14314#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q06",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The RAG model's retriever is initialized using DPR’s retriever.",
+        "citations": [
+          {
+            "chunk_id": "2005.11401:p5:c5",
+            "arxiv_id": "2005.11401",
+            "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+            "year": 2020,
+            "page": 5,
+            "quote": "It is worth noting that RAG’s retriever is initialized using DPR’s retriever",
+            "url": "https://arxiv.org/pdf/2005.11401#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "DPR is trained using the in-batch negative setting along with one additional BM25 negative passage per question.",
+        "citations": [
+          {
+            "chunk_id": "2004.04906:p5:c1",
+            "arxiv_id": "2004.04906",
+            "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+            "year": 2020,
+            "page": 5,
+            "quote": "trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question.",
+            "url": "https://arxiv.org/pdf/2004.04906#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q08",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "ColBERT computes the relevance score between a query and a document via late interaction, which is defined as a summation of maximum similarity (MaxSim) operators. It finds the maximum cosine similarity (or alternatively squared L2 distance) of each query embedding vector with vectors in the document embeddings, and then combines these outputs through summation to estimate the document relevance.",
+        "citations": [
+          {
+            "chunk_id": "2004.12832:p4:c1",
+            "arxiv_id": "2004.12832",
+            "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+            "year": 2020,
+            "page": 4,
+            "quote": "ColBERT computes the relevance score between q and d via late interaction, which we define as a summation of maximum similarity (MaxSim) operators.",
+            "url": "https://arxiv.org/pdf/2004.12832#page=4"
+          },
+          {
+            "chunk_id": "2004.12832:p4:c1",
+            "arxiv_id": "2004.12832",
+            "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+            "year": 2020,
+            "page": 4,
+            "quote": "we find the maximum cosine similarity of each v ∈ Eq with vectors in Ed , and combine the outputs via summation.",
+            "url": "https://arxiv.org/pdf/2004.12832#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Before retrieving documents, HyDE generates a hypothetical document (or assumed answers to the original query) by using a language model or generative model.",
+        "citations": [
+          {
+            "chunk_id": "2312.10997:p9:c1",
+            "arxiv_id": "2312.10997",
+            "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+            "year": 2023,
+            "page": 9,
+            "quote": "HyDE [11] construct hypothetical documents (assumed answers to the original query).",
+            "url": "https://arxiv.org/pdf/2312.10997#page=9"
+          },
+          {
+            "chunk_id": "2212.10496:p2:c1",
+            "arxiv_id": "2212.10496",
+            "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels",
+            "year": 2022,
+            "page": 2,
+            "quote": "First, we feed the query to the generative model and instruct it to \"write a document that answers the question\", i.e. a hypothetical document.",
+            "url": "https://arxiv.org/pdf/2212.10496#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Language models use information best when the relevant information is placed at the very beginning (primacy bias) or at the very end of their input context (recency bias). Performance drops significantly when information is located in the middle.",
+        "citations": [
+          {
+            "chunk_id": "2307.03172:p2:c2",
+            "arxiv_id": "2307.03172",
+            "title": "Lost in the Middle: How Language Models Use Long Contexts",
+            "year": 2023,
+            "page": 2,
+            "quote": "language model performance is highest when relevant information occurs at the very beginning (primacy bias) or end of its input context (recency bias)",
+            "url": "https://arxiv.org/pdf/2307.03172#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q11",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Self-RAG, reflection tokens are newly added special tokens (or intermittent special tokens) predicted alongside text from the model's original vocabulary. They allow the model to critique text passages and its own generation process. These tokens are categorized into retrieval and critique tokens, which indicate the need for retrieval and evaluate generation quality, respectively. Generating reflection tokens makes the language model controllable during inference, enabling it to tailor its behavior to diverse task requirements.",
+        "citations": [
+          {
+            "chunk_id": "2310.11511:p10:c5",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 10,
+            "quote": "newly added special tokens, called reflection tokens",
+            "url": "https://arxiv.org/pdf/2310.11511#page=10"
+          },
+          {
+            "chunk_id": "2310.11511:p1:c3",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 1,
+            "quote": "Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively",
+            "url": "https://arxiv.org/pdf/2310.11511#page=1"
+          },
+          {
+            "chunk_id": "2310.11511:p1:c1",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 1,
+            "quote": "Generating reflection tokens makes the LM controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements.",
+            "url": "https://arxiv.org/pdf/2310.11511#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 4,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Based on the confidence degree quantified by the retrieval evaluator, CRAG triggers three knowledge retrieval actions: Correct, Incorrect, and Ambiguous. For the \\\"Correct\\\" action, retrieved documents are refined into precise knowledge strips through decomposition, filtering, and recomposition. For the \\\"Incorrect\\\" action, retrieved documents are discarded, and web searches are used instead for corrections. For the \\\"Ambiguous\\\" action, CRAG triggers a soft and balanced action that combines both approaches.",
+        "citations": [
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "The relevance score is quantified into a total of three confidence degrees and then triggered the corresponding actions: {Correct, Incorrect, Ambiguous}",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Incorrect is triggered, the retrieved documents will be discarded. Instead, web searches are resorted to and regarded as complementary knowledge sources for corrections",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts do not specify the exact names of all the individual metrics used by RAGAS, but they state that RAGAS focuses on quality aspects including faithfulness, answer relevance, and context relevance.",
+        "citations": [
+          {
+            "chunk_id": "2309.15217:p3:c0",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 3,
+            "quote": "We focus in particular three quality aspects, which we argue are of central importance. First, Faithfulness refers to the idea that the answer should be grounded in the given context.",
+            "url": "https://arxiv.org/pdf/2309.15217#page=3"
+          },
+          {
+            "chunk_id": "2309.15217:p3:c0",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 3,
+            "quote": "Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided.",
+            "url": "https://arxiv.org/pdf/2309.15217#page=3"
+          },
+          {
+            "chunk_id": "2309.15217:p3:c0",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 3,
+            "quote": "Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible.",
+            "url": "https://arxiv.org/pdf/2309.15217#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q14",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 3,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "On the MS MARCO dataset, BM25 (official) achieves an MRR@10 of 16.5 on the Eval set and 16.7 on the Dev set. BERT re-ranking substantially improves performance: BERT Base achieves an MRR@10 of 34.7 on the Dev set, and BERT Large achieves MRR@10 scores of 36.5 on the Dev set and 35.8 or 35.9 on the Eval set.",
+        "citations": [
+          {
+            "chunk_id": "1901.04085:p3:c0",
+            "arxiv_id": "1901.04085",
+            "title": "Passage Re-ranking with BERT",
+            "year": 2019,
+            "page": 3,
+            "quote": "|BM25 (Lucene, no tuning)|16.7|16.5|12.3|",
+            "url": "https://arxiv.org/pdf/1901.04085#page=3"
+          },
+          {
+            "chunk_id": "2004.12832:p7:c0",
+            "arxiv_id": "2004.12832",
+            "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+            "year": 2020,
+            "page": 7,
+            "quote": "|BERTlarge [25]|36.5|35.9|32,900|340T (48,600×)|",
+            "url": "https://arxiv.org/pdf/2004.12832#page=7"
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "GPT-3 has 175 billion parameters.",
+        "citations": [
+          {
+            "chunk_id": "2005.14165:p5:c1",
+            "arxiv_id": "2005.14165",
+            "title": "Language Models are Few-Shot Learners",
+            "year": 2020,
+            "page": 5,
+            "quote": "training a 175 billion parameter autoregressive language model, which we call GPT-3",
+            "url": "https://arxiv.org/pdf/2005.14165#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Chinchilla was trained on 1.4 trillion tokens.",
+        "citations": [
+          {
+            "chunk_id": "2203.15556:p3:c0",
+            "arxiv_id": "2203.15556",
+            "title": "Training Compute-Optimal Large Language Models",
+            "year": 2022,
+            "page": 3,
+            "quote": "|Chinchilla|70 Billion|1.4 Trillion|",
+            "url": "https://arxiv.org/pdf/2203.15556#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "BERT is pre-trained using two unsupervised tasks: Masked LM (Task #1) and Next Sentence Prediction (NSP) (Task #2).",
+        "citations": [
+          {
+            "chunk_id": "1810.04805:p4:c4",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 4,
+            "quote": "Instead, we pre-train BERT using two unsupervised tasks, described in this section.",
+            "url": "https://arxiv.org/pdf/1810.04805#page=4"
+          },
+          {
+            "chunk_id": "1810.04805:p4:c4",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 4,
+            "quote": "Task #1: Masked LM",
+            "url": "https://arxiv.org/pdf/1810.04805#page=4"
+          },
+          {
+            "chunk_id": "1810.04805:p4:c4",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 4,
+            "quote": "### Task #2: Next Sentence Prediction (NSP)",
+            "url": "https://arxiv.org/pdf/1810.04805#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q18",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 1,
+        "faithful": false,
+        "unsupported_claims": [
+          "Chain-of-thought prompting is inspired by program synthesis/execution, numeric and logical reasoning (the answer omits these specific inspirations mentioned in the source)",
+          "The answer claims the approach can be used for symbolic manipulation (this is not explicitly mentioned in the provided source text)"
+        ],
+        "llm_calls": 1,
+        "answer": "Chain-of-thought prompting is a general approach inspired by various prior directions such as prompting, natural language explanations, and intermediate language steps. Specifically, it involves using a prompt consisting of triples containing input, a chain of thought, and output, where a chain of thought is a series of intermediate natural language reasoning steps leading to the final output. This approach allows models to decompose multi-step problems into intermediate steps, provides an interpretable window into the model's behavior, and can be used for tasks like math word problems, commonsense reasoning, and symbolic manipulation.",
+        "citations": [
+          {
+            "chunk_id": "2201.11903:p24:c0",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 24,
+            "quote": "Chain-of-thought prompting is a general approach that is inspired by several prior directions: prompting, natural language explanations, program synthesis/execution, numeric and logical reasoning, and intermediate language steps.",
+            "url": "https://arxiv.org/pdf/2201.11903#page=24"
+          },
+          {
+            "chunk_id": "2201.11903:p2:c3",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 2,
+            "quote": "A chain of thought is a series of intermediate natural language reasoning steps that lead to the final output, and we refer to this approach as chain-of-thought prompting .",
+            "url": "https://arxiv.org/pdf/2201.11903#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "DPO avoids training an explicit reward model by using a change of variables to define the preference loss directly as a function of the policy. It fits an implicit reward model and optimizes the policy using a simple binary cross-entropy or maximum likelihood objective.",
+        "citations": [
+          {
+            "chunk_id": "2305.18290:p2:c3",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "DPO uses a change of variables to define the preference loss as a function of the policy directly",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          },
+          {
+            "chunk_id": "2305.18290:p2:c0",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "fitting an implicit reward model whose corresponding optimal policy can be extracted in closed form",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          },
+          {
+            "chunk_id": "2305.18290:p5:c4",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 5,
+            "quote": "DPO is able to bypass both fitting an explicit reward and performing RL to learn the policy using a single maximum likelihood objective",
+            "url": "https://arxiv.org/pdf/2305.18290#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "InstructGPT's training method involves starting with a set of labeler-written prompts and API prompts, collecting labeler demonstrations of desired behavior, and fine-tuning GPT-3 using supervised learning. Then, a dataset of rankings of model outputs is collected to further fine-tune this supervised model using reinforcement learning from human feedback.",
+        "citations": [
+          {
+            "chunk_id": "2203.02155:p1:c1",
+            "arxiv_id": "2203.02155",
+            "title": "Training language models to follow instructions with human feedback",
+            "year": 2022,
+            "page": 1,
+            "quote": "We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback.",
+            "url": "https://arxiv.org/pdf/2203.02155#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q21",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Llama 2's fine-tuning, rejection sampling and PPO differ primarily in breadth and depth. In terms of breadth, rejection sampling has the model explore K samples for a given prompt, whereas PPO generates only a single generation. For depth, PPO trains at step t using samples that are a function of the updated model policy from the previous step, whereas rejection sampling collects a new dataset by sampling all outputs using the initial policy before performing fine-tuning.",
+        "citations": [
+          {
+            "chunk_id": "2307.09288:p14:c1",
+            "arxiv_id": "2307.09288",
+            "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+            "year": 2023,
+            "page": 14,
+            "quote": "Breadth — in Rejection Sampling, the model explores K samples for a given prompt, while only one generation is done for PPO.",
+            "url": "https://arxiv.org/pdf/2307.09288#page=14"
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "To turn an image into a sequence of tokens, ViT reshapes the 2D image into a sequence of flattened 2D patches. These patches are then mapped to D dimensions using a trainable linear projection to create patch embeddings. Additionally, position embeddings are added to retain positional information, and a learnable classification token is prepended to the sequence.",
+        "citations": [
+          {
+            "chunk_id": "2010.11929:p3:c2",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "we flatten the patches and map to D dimensions with a trainable linear projection",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          },
+          {
+            "chunk_id": "2010.11929:p3:c3",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "Position embeddings are added to the patch embeddings to retain positional information.",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          },
+          {
+            "chunk_id": "2010.11929:p3:c3",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "we prepend a learnable embedding to the sequence of embedded patches",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q23",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": false,
+        "unsupported_claims": [
+          "They also ease optimization by providing faster convergence at the early stage when the network is not overly deep."
+        ],
+        "llm_calls": 1,
+        "answer": "Residual connections in ResNet address the degradation problem, ensuring it is well addressed and allowing accuracy gains from increased depth. They also ease optimization by providing faster convergence at the early stage when the network is not overly deep.",
+        "citations": [
+          {
+            "chunk_id": "1512.03385:p5:c6",
+            "arxiv_id": "1512.03385",
+            "title": "Deep Residual Learning for Image Recognition",
+            "year": 2015,
+            "page": 5,
+            "quote": "This indicates that the degradation problem is well addressed in this setting and we manage to obtain accuracy gains from increased depth.",
+            "url": "https://arxiv.org/pdf/1512.03385#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "The provided library does not contain information on how DQN stabilises training on Atari"
+        ],
+        "llm_calls": 1,
+        "answer": "The provided library does not contain information on how DQN stabilises training on Atari, though it mentions that clipping the reward structure during training limits the scale of error derivatives and helps use the same learning rate across multiple games.",
+        "citations": [
+          {
+            "chunk_id": "1312.5602:p6:c1",
+            "arxiv_id": "1312.5602",
+            "title": "Playing Atari with Deep Reinforcement Learning",
+            "year": 2013,
+            "page": 6,
+            "quote": "Clipping the rewards in this manner limits the scale of the error derivatives and makes it easier to use the same learning rate across multiple games.",
+            "url": "https://arxiv.org/pdf/1312.5602#page=6"
+          }
+        ]
+      },
+      {
+        "id": "q25",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Soft Actor-Critic (SAC) optimizes an objective corresponding to maximizing the discounted expected reward and entropy for future states originating from every state-action tuple.",
+        "citations": [
+          {
+            "chunk_id": "1801.01290:p11:c0",
+            "arxiv_id": "1801.01290",
+            "title": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
+            "year": 2018,
+            "page": 11,
+            "quote": "This objective corresponds to maximizing the discounted expected reward and entropy for future states originating from every state-action tuple",
+            "url": "https://arxiv.org/pdf/1801.01290#page=11"
+          }
+        ]
+      },
+      {
+        "id": "u01",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u02",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u03",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u04",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u05",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      }
+    ],
+    "hybrid+rerank+crag": [
+      {
+        "id": "q01",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "other models discussed in the library may have different configurations, such as 12 layers in the baseline text-to-text transformer or 24 layers in the larger variant"
+        ],
+        "llm_calls": 1,
+        "answer": "According to the original Transformer model, the encoder is composed of a stack of 6 identical layers (N = 6). However, other models discussed in the library may have different configurations, such as 12 layers in the baseline text-to-text transformer or 24 layers in the larger variant.",
+        "citations": [
+          {
+            "chunk_id": "1706.03762:p3:c0",
+            "arxiv_id": "1706.03762",
+            "title": "Attention Is All You Need",
+            "year": 2017,
+            "page": 3,
+            "quote": "Encoder: The encoder is composed of a stack of N = 6 identical layers.",
+            "url": "https://arxiv.org/pdf/1706.03762#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q02",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "CLIP was trained on a new dataset of 400 million image and text pairs created from publicly available data on the internet, as well as text paired with images found on the internet.",
+        "citations": [
+          {
+            "chunk_id": "2103.00020:p2:c4",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 2,
+            "quote": "we create a new dataset of 400 million (image, text) pairs",
+            "url": "https://arxiv.org/pdf/2103.00020#page=2"
+          },
+          {
+            "chunk_id": "2103.00020:p20:c2",
+            "arxiv_id": "2103.00020",
+            "title": "Learning Transferable Visual Models From Natural Language Supervision",
+            "year": 2021,
+            "page": 20,
+            "quote": "CLIP is trained on text paired with images on the internet.",
+            "url": "https://arxiv.org/pdf/2103.00020#page=20"
+          }
+        ]
+      },
+      {
+        "id": "q03",
+        "answerable": true,
+        "path": "corrected",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 4,
+        "answer": "PPO clips the policy update by using a clipped surrogate objective. It modifies the surrogate objective by clipping the probability ratio $r_t(\\theta)$, which removes the incentive for moving $r_t$ outside of the interval $[1-\\epsilon, 1+\\epsilon]$. The final objective takes the minimum of the clipped and unclipped objective, acting as a lower bound.",
+        "citations": [
+          {
+            "chunk_id": "1707.06347:p3:c1",
+            "arxiv_id": "1707.06347",
+            "title": "Proximal Policy Optimization Algorithms",
+            "year": 2017,
+            "page": 3,
+            "quote": "the surrogate objective by clipping the probability ratio, which removes the incentive for moving rt outside of the interval [1 − ϵ, 1 + ϵ ]",
+            "url": "https://arxiv.org/pdf/1707.06347#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q04",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "LoRA freezes the pre-trained model weights while training rank decomposition matrices or injected low-rank matrices instead.",
+        "citations": [
+          {
+            "chunk_id": "2106.09685:p1:c1",
+            "arxiv_id": "2106.09685",
+            "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+            "year": 2021,
+            "page": 1,
+            "quote": "freezes the pretrained model weights and injects trainable rank decomposition matrices into each layer",
+            "url": "https://arxiv.org/pdf/2106.09685#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q05",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "QLoRA introduces the 4-bit NormalFloat (NF4) data type, which is described as information-theoretically optimal for normally distributed weights.",
+        "citations": [
+          {
+            "chunk_id": "2305.14314:p1:c1",
+            "arxiv_id": "2305.14314",
+            "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+            "year": 2023,
+            "page": 1,
+            "quote": "4-bit NormalFloat (NF4), a new data type that is information theoretically optimal for normally distributed weights",
+            "url": "https://arxiv.org/pdf/2305.14314#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q06",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "The RAG model's retriever is initialized using DPR's retriever, which applies retrieval supervision on Natural Questions and TriviaQA.",
+        "citations": [
+          {
+            "chunk_id": "2005.11401:p5:c5",
+            "arxiv_id": "2005.11401",
+            "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+            "year": 2020,
+            "page": 5,
+            "quote": "It is worth noting that RAG’s retriever is initialized using DPR’s retriever, which uses retrieval supervision on Natural Questions and TriviaQA.",
+            "url": "https://arxiv.org/pdf/2005.11401#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q07",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "DPR is trained using the in-batch negative setting along with one additional BM25 negative passage per question.",
+        "citations": [
+          {
+            "chunk_id": "2004.04906:p5:c1",
+            "arxiv_id": "2004.04906",
+            "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+            "year": 2020,
+            "page": 5,
+            "quote": "trained using the in-batch negative setting (Section 3.2) with a batch size of 128 and one additional BM25 negative passage per question.",
+            "url": "https://arxiv.org/pdf/2004.04906#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q08",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "ColBERT computes the relevance score between a query and a document via late interaction, which is defined as a summation of maximum similarity (MaxSim) operators. It finds the maximum cosine similarity (or alternatively squared L2 distance) of each query embedding vector with vectors in the document embeddings, and then combines these outputs through summation to estimate the document relevance.",
+        "citations": [
+          {
+            "chunk_id": "2004.12832:p4:c1",
+            "arxiv_id": "2004.12832",
+            "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+            "year": 2020,
+            "page": 4,
+            "quote": "ColBERT computes the relevance score between q and d via late interaction, which we define as a summation of maximum similarity (MaxSim) operators.",
+            "url": "https://arxiv.org/pdf/2004.12832#page=4"
+          },
+          {
+            "chunk_id": "2004.12832:p4:c1",
+            "arxiv_id": "2004.12832",
+            "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+            "year": 2020,
+            "page": 4,
+            "quote": "we find the maximum cosine similarity of each v ∈ Eq with vectors in Ed , and combine the outputs via summation.",
+            "url": "https://arxiv.org/pdf/2004.12832#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q09",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": false,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "Before retrieving documents, HyDE generates a hypothetical document (which serves as an assumed answer to the original query).",
+        "citations": [
+          {
+            "chunk_id": "2312.10997:p9:c1",
+            "arxiv_id": "2312.10997",
+            "title": "Retrieval-Augmented Generation for Large Language Models: A Survey",
+            "year": 2023,
+            "page": 9,
+            "quote": "HyDE [11] construct hypothetical documents (assumed answers to the original query).",
+            "url": "https://arxiv.org/pdf/2312.10997#page=9"
+          }
+        ]
+      },
+      {
+        "id": "q10",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Language models use information best when the relevant information is placed at the very beginning (primacy bias) or at the very end of their input context (recency bias). Performance drops significantly when information is located in the middle.",
+        "citations": [
+          {
+            "chunk_id": "2307.03172:p2:c2",
+            "arxiv_id": "2307.03172",
+            "title": "Lost in the Middle: How Language Models Use Long Contexts",
+            "year": 2023,
+            "page": 2,
+            "quote": "language model performance is highest when relevant information occurs at the very beginning (primacy bias) or end of its input context (recency bias)",
+            "url": "https://arxiv.org/pdf/2307.03172#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q11",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Self-RAG, reflection tokens are newly added special tokens (or intermittent special tokens) predicted alongside text from the model's original vocabulary. They allow the model to critique text passages and its own generation process. These tokens are categorized into retrieval and critique tokens, which indicate the need for retrieval and evaluate generation quality, respectively. Generating reflection tokens makes the language model controllable during inference, enabling it to tailor its behavior to diverse task requirements.",
+        "citations": [
+          {
+            "chunk_id": "2310.11511:p10:c5",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 10,
+            "quote": "newly added special tokens, called reflection tokens",
+            "url": "https://arxiv.org/pdf/2310.11511#page=10"
+          },
+          {
+            "chunk_id": "2310.11511:p1:c3",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 1,
+            "quote": "Reflection tokens are categorized into retrieval and critique tokens to indicate the need for retrieval and its generation quality respectively",
+            "url": "https://arxiv.org/pdf/2310.11511#page=1"
+          },
+          {
+            "chunk_id": "2310.11511:p1:c1",
+            "arxiv_id": "2310.11511",
+            "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+            "year": 2023,
+            "page": 1,
+            "quote": "Generating reflection tokens makes the LM controllable during the inference phase, enabling it to tailor its behavior to diverse task requirements.",
+            "url": "https://arxiv.org/pdf/2310.11511#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q12",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 4,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Based on the confidence degree quantified by the retrieval evaluator, CRAG triggers three knowledge retrieval actions: Correct, Incorrect, and Ambiguous. For the \\\"Correct\\\" action, retrieved documents are refined into precise knowledge strips through decomposition, filtering, and recomposition. For the \\\"Incorrect\\\" action, retrieved documents are discarded, and web searches are used instead for corrections. For the \\\"Ambiguous\\\" action, CRAG triggers a soft and balanced action that combines both approaches.",
+        "citations": [
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "The relevance score is quantified into a total of three confidence degrees and then triggered the corresponding actions: {Correct, Incorrect, Ambiguous}",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Correct is triggered, the retrieved documents will be refined into more precise knowledge strips.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "If the action Incorrect is triggered, the retrieved documents will be discarded. Instead, web searches are resorted to and regarded as complementary knowledge sources for corrections",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          },
+          {
+            "chunk_id": "2401.15884:p3:c4",
+            "arxiv_id": "2401.15884",
+            "title": "Corrective Retrieval Augmented Generation",
+            "year": 2024,
+            "page": 3,
+            "quote": "when it cannot confidently make a correct or incorrect judgment, a soft and balanced action Ambiguous which combines both of them is triggered.",
+            "url": "https://arxiv.org/pdf/2401.15884#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q13",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "The provided excerpts do not specify the exact names of all the individual metrics used by RAGAS, but they state that RAGAS focuses on quality aspects including faithfulness, answer relevance, and context relevance.",
+        "citations": [
+          {
+            "chunk_id": "2309.15217:p3:c0",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 3,
+            "quote": "We focus in particular three quality aspects, which we argue are of central importance. First, Faithfulness refers to the idea that the answer should be grounded in the given context.",
+            "url": "https://arxiv.org/pdf/2309.15217#page=3"
+          },
+          {
+            "chunk_id": "2309.15217:p3:c0",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 3,
+            "quote": "Second, Answer Relevance refers to the idea that the generated answer should address the actual question that was provided.",
+            "url": "https://arxiv.org/pdf/2309.15217#page=3"
+          },
+          {
+            "chunk_id": "2309.15217:p3:c0",
+            "arxiv_id": "2309.15217",
+            "title": "Ragas: Automated Evaluation of Retrieval Augmented Generation",
+            "year": 2023,
+            "page": 3,
+            "quote": "Finally, Context Relevance refers to the idea that the retrieved context should be focused, containing as little irrelevant information as possible.",
+            "url": "https://arxiv.org/pdf/2309.15217#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q14",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 3,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "On the MS MARCO dataset, BM25 (official) achieves an MRR@10 of 16.5 on the Eval set and 16.7 on the Dev set. BERT re-ranking substantially improves performance: BERT Base achieves an MRR@10 of 34.7 on the Dev set, and BERT Large achieves MRR@10 scores of 36.5 on the Dev set and 35.8 or 35.9 on the Eval set.",
+        "citations": [
+          {
+            "chunk_id": "1901.04085:p3:c0",
+            "arxiv_id": "1901.04085",
+            "title": "Passage Re-ranking with BERT",
+            "year": 2019,
+            "page": 3,
+            "quote": "|BM25 (Lucene, no tuning)|16.7|16.5|12.3|",
+            "url": "https://arxiv.org/pdf/1901.04085#page=3"
+          },
+          {
+            "chunk_id": "2004.12832:p7:c0",
+            "arxiv_id": "2004.12832",
+            "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+            "year": 2020,
+            "page": 7,
+            "quote": "|BERTlarge [25]|36.5|35.9|32,900|340T (48,600×)|",
+            "url": "https://arxiv.org/pdf/2004.12832#page=7"
+          }
+        ]
+      },
+      {
+        "id": "q15",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "GPT-3 has 175 billion parameters.",
+        "citations": [
+          {
+            "chunk_id": "2005.14165:p5:c1",
+            "arxiv_id": "2005.14165",
+            "title": "Language Models are Few-Shot Learners",
+            "year": 2020,
+            "page": 5,
+            "quote": "training a 175 billion parameter autoregressive language model, which we call GPT-3",
+            "url": "https://arxiv.org/pdf/2005.14165#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q16",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Chinchilla was trained on 1.4 trillion tokens.",
+        "citations": [
+          {
+            "chunk_id": "2203.15556:p3:c0",
+            "arxiv_id": "2203.15556",
+            "title": "Training Compute-Optimal Large Language Models",
+            "year": 2022,
+            "page": 3,
+            "quote": "|Chinchilla|70 Billion|1.4 Trillion|",
+            "url": "https://arxiv.org/pdf/2203.15556#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q17",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "BERT is pre-trained using two unsupervised tasks: Masked LM (Task #1) and Next Sentence Prediction (NSP) (Task #2).",
+        "citations": [
+          {
+            "chunk_id": "1810.04805:p4:c4",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 4,
+            "quote": "Instead, we pre-train BERT using two unsupervised tasks, described in this section.",
+            "url": "https://arxiv.org/pdf/1810.04805#page=4"
+          },
+          {
+            "chunk_id": "1810.04805:p4:c4",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 4,
+            "quote": "Task #1: Masked LM",
+            "url": "https://arxiv.org/pdf/1810.04805#page=4"
+          },
+          {
+            "chunk_id": "1810.04805:p4:c4",
+            "arxiv_id": "1810.04805",
+            "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+            "year": 2018,
+            "page": 4,
+            "quote": "### Task #2: Next Sentence Prediction (NSP)",
+            "url": "https://arxiv.org/pdf/1810.04805#page=4"
+          }
+        ]
+      },
+      {
+        "id": "q18",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 1,
+        "faithful": false,
+        "unsupported_claims": [
+          "Chain-of-thought prompting is inspired by program synthesis/execution, numeric and logical reasoning (the answer omits these specific inspirations mentioned in the source)",
+          "The answer claims the approach can be used for symbolic manipulation (this is not explicitly mentioned in the provided source text)"
+        ],
+        "llm_calls": 1,
+        "answer": "Chain-of-thought prompting is a general approach inspired by various prior directions such as prompting, natural language explanations, and intermediate language steps. Specifically, it involves using a prompt consisting of triples containing input, a chain of thought, and output, where a chain of thought is a series of intermediate natural language reasoning steps leading to the final output. This approach allows models to decompose multi-step problems into intermediate steps, provides an interpretable window into the model's behavior, and can be used for tasks like math word problems, commonsense reasoning, and symbolic manipulation.",
+        "citations": [
+          {
+            "chunk_id": "2201.11903:p24:c0",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 24,
+            "quote": "Chain-of-thought prompting is a general approach that is inspired by several prior directions: prompting, natural language explanations, program synthesis/execution, numeric and logical reasoning, and intermediate language steps.",
+            "url": "https://arxiv.org/pdf/2201.11903#page=24"
+          },
+          {
+            "chunk_id": "2201.11903:p2:c3",
+            "arxiv_id": "2201.11903",
+            "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+            "year": 2022,
+            "page": 2,
+            "quote": "A chain of thought is a series of intermediate natural language reasoning steps that lead to the final output, and we refer to this approach as chain-of-thought prompting .",
+            "url": "https://arxiv.org/pdf/2201.11903#page=2"
+          }
+        ]
+      },
+      {
+        "id": "q19",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 2,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "DPO avoids training an explicit reward model by using a change of variables to define the preference loss directly as a function of the policy. This allows it to optimize the policy using a simple binary cross-entropy or maximum likelihood objective, fitting an implicit reward model instead.",
+        "citations": [
+          {
+            "chunk_id": "2305.18290:p2:c3",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 2,
+            "quote": "DPO uses a change of variables to define the preference loss as a function of the policy directly.",
+            "url": "https://arxiv.org/pdf/2305.18290#page=2"
+          },
+          {
+            "chunk_id": "2305.18290:p5:c4",
+            "arxiv_id": "2305.18290",
+            "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+            "year": 2023,
+            "page": 5,
+            "quote": "DPO is able to bypass both fitting an explicit reward and performing RL to learn the policy using a single maximum likelihood objective.",
+            "url": "https://arxiv.org/pdf/2305.18290#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q20",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "InstructGPT's training method involves starting with a set of labeler-written and API-submitted prompts, collecting a dataset of labeler demonstrations of desired behavior to fine-tune GPT-3 via supervised learning, and then collecting a dataset of model output rankings to further fine-tune the supervised model using reinforcement learning from human feedback.",
+        "citations": [
+          {
+            "chunk_id": "2203.02155:p1:c1",
+            "arxiv_id": "2203.02155",
+            "title": "Training language models to follow instructions with human feedback",
+            "year": 2022,
+            "page": 1,
+            "quote": "We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback.",
+            "url": "https://arxiv.org/pdf/2203.02155#page=1"
+          }
+        ]
+      },
+      {
+        "id": "q21",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "In Llama 2's fine-tuning, rejection sampling and PPO differ primarily in breadth and depth. In terms of breadth, rejection sampling has the model explore K samples for a given prompt, whereas PPO generates only a single generation. For depth, PPO trains at step t using samples that are a function of the updated model policy from the previous step, whereas rejection sampling collects a new dataset by sampling all outputs using the initial policy before performing fine-tuning.",
+        "citations": [
+          {
+            "chunk_id": "2307.09288:p14:c1",
+            "arxiv_id": "2307.09288",
+            "title": "Llama 2: Open Foundation and Fine-Tuned Chat Models",
+            "year": 2023,
+            "page": 14,
+            "quote": "Breadth — in Rejection Sampling, the model explores K samples for a given prompt, while only one generation is done for PPO.",
+            "url": "https://arxiv.org/pdf/2307.09288#page=14"
+          }
+        ]
+      },
+      {
+        "id": "q22",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 3,
+        "dropped_citations": 1,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "To turn an image into a sequence of tokens, ViT first reshapes the 2D image into a sequence of flattened 2D patches. These patches are then mapped to $D$ dimensions using a trainable linear projection to produce patch embeddings. To retain positional information, position embeddings are added to these patch embeddings. Additionally, a learnable classification embedding is prepended to the sequence.",
+        "citations": [
+          {
+            "chunk_id": "2010.11929:p3:c2",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "we flatten the patches and map to D dimensions with a trainable linear projection",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          },
+          {
+            "chunk_id": "2010.11929:p3:c3",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "Position embeddings are added to the patch embeddings to retain positional information.",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          },
+          {
+            "chunk_id": "2010.11929:p3:c3",
+            "arxiv_id": "2010.11929",
+            "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+            "year": 2020,
+            "page": 3,
+            "quote": "we prepend a learnable embedding to the sequence of embedded patches",
+            "url": "https://arxiv.org/pdf/2010.11929#page=3"
+          }
+        ]
+      },
+      {
+        "id": "q23",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "Residual connections in ResNet address the degradation problem, allowing deeper networks to exhibit lower training error and achieve accuracy gains from increased depth.",
+        "citations": [
+          {
+            "chunk_id": "1512.03385:p5:c6",
+            "arxiv_id": "1512.03385",
+            "title": "Deep Residual Learning for Image Recognition",
+            "year": 2015,
+            "page": 5,
+            "quote": "This indicates that the degradation problem is well addressed in this setting and we manage to obtain accuracy gains from increased depth.",
+            "url": "https://arxiv.org/pdf/1512.03385#page=5"
+          }
+        ]
+      },
+      {
+        "id": "q24",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": false,
+        "unsupported_claims": [
+          "The provided excerpts do not explain how DQN stabilises training on Atari"
+        ],
+        "llm_calls": 2,
+        "answer": "The provided excerpts do not explain how DQN stabilises training on Atari; they only discuss modifying the reward structure by fixing all positive rewards to 1 and all negative rewards to -1 during training.",
+        "citations": [
+          {
+            "chunk_id": "1312.5602:p6:c1",
+            "arxiv_id": "1312.5602",
+            "title": "Playing Atari with Deep Reinforcement Learning",
+            "year": 2013,
+            "page": 6,
+            "quote": "Clipping the rewards in this manner limits the scale of the error derivatives and makes it easier to use the same learning rate across multiple games.",
+            "url": "https://arxiv.org/pdf/1312.5602#page=6"
+          }
+        ]
+      },
+      {
+        "id": "q25",
+        "answerable": true,
+        "path": "direct",
+        "refused": false,
+        "cited_gold": true,
+        "valid_citations": 1,
+        "dropped_citations": 0,
+        "faithful": true,
+        "unsupported_claims": [],
+        "llm_calls": 1,
+        "answer": "Soft Actor-Critic (SAC) optimizes an objective corresponding to maximizing the discounted expected reward and entropy for future states originating from every state-action tuple.",
+        "citations": [
+          {
+            "chunk_id": "1801.01290:p11:c0",
+            "arxiv_id": "1801.01290",
+            "title": "Soft Actor-Critic: Off-Policy Maximum Entropy Deep Reinforcement Learning with a Stochastic Actor",
+            "year": 2018,
+            "page": 11,
+            "quote": "This objective corresponds to maximizing the discounted expected reward and entropy for future states originating from every state-action tuple",
+            "url": "https://arxiv.org/pdf/1801.01290#page=11"
+          }
+        ]
+      },
+      {
+        "id": "u01",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 3,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u02",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 3,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u03",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 3,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u04",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 2,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      },
+      {
+        "id": "u05",
+        "answerable": false,
+        "path": "refused",
+        "refused": true,
+        "cited_gold": false,
+        "valid_citations": 0,
+        "dropped_citations": 0,
+        "faithful": null,
+        "unsupported_claims": [],
+        "llm_calls": 3,
+        "answer": "Not enough evidence in the library to answer this question.",
+        "citations": []
+      }
+    ]
+  }
+}

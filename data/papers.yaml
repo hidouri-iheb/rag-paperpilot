@@ -1,0 +1,62 @@
+# keep ids quoted, yaml turns 1801.01290 into a float otherwise
+
+papers:
+  # transformers / llms
+  - { id: "1706.03762", area: transformers }   # attention is all you need
+  - { id: "1810.04805", area: transformers }   # bert
+  - { id: "1907.11692", area: transformers }   # roberta
+  - { id: "1910.10683", area: transformers }   # t5
+  - { id: "2005.14165", area: transformers }   # gpt-3
+  - { id: "2001.08361", area: transformers }   # scaling laws
+  - { id: "2203.15556", area: transformers }   # chinchilla
+  - { id: "2302.13971", area: transformers }   # llama
+  - { id: "2307.09288", area: transformers }   # llama 2
+  - { id: "2201.11903", area: transformers }   # chain-of-thought
+  - { id: "2205.14135", area: transformers }   # flashattention
+  - { id: "2210.03629", area: transformers }   # react
+
+  # rag / retrieval
+  - { id: "2005.11401", area: rag-retrieval }  # rag
+  - { id: "2004.04906", area: rag-retrieval }  # dpr
+  - { id: "2002.08909", area: rag-retrieval }  # realm
+  - { id: "2007.01282", area: rag-retrieval }  # fusion-in-decoder
+  - { id: "2112.04426", area: rag-retrieval }  # retro
+  - { id: "2004.12832", area: rag-retrieval }  # colbert
+  - { id: "1908.10084", area: rag-retrieval }  # sentence-bert
+  - { id: "1901.04085", area: rag-retrieval }  # bert reranking
+  - { id: "2104.08663", area: rag-retrieval }  # beir
+  - { id: "2212.10496", area: rag-retrieval }  # hyde
+  - { id: "2307.03172", area: rag-retrieval }  # lost in the middle
+  - { id: "2310.11511", area: rag-retrieval }  # self-rag
+  - { id: "2401.15884", area: rag-retrieval }  # crag
+  - { id: "2312.10997", area: rag-retrieval }  # rag survey
+  - { id: "2309.15217", area: rag-retrieval }  # ragas
+  - { id: "2309.07597", area: rag-retrieval }  # c-pack (bge)
+
+  # fine-tuning / alignment
+  - { id: "1902.00751", area: fine-tuning }    # adapters
+  - { id: "2101.00190", area: fine-tuning }    # prefix-tuning
+  - { id: "2106.09685", area: fine-tuning }    # lora
+  - { id: "2305.14314", area: fine-tuning }    # qlora
+  - { id: "2109.01652", area: fine-tuning }    # flan
+  - { id: "2203.02155", area: fine-tuning }    # instructgpt
+  - { id: "2212.08073", area: fine-tuning }    # constitutional ai
+  - { id: "2305.18290", area: fine-tuning }    # dpo
+
+  # vision
+  - { id: "1505.04597", area: vision }         # u-net
+  - { id: "1512.03385", area: vision }         # resnet
+  - { id: "2010.11929", area: vision }         # vit
+  - { id: "2103.00020", area: vision }         # clip
+  - { id: "2006.11239", area: vision }         # ddpm
+  - { id: "2112.10752", area: vision }         # latent diffusion
+  - { id: "2304.02643", area: vision }         # segment anything
+
+  # rl
+  - { id: "1312.5602", area: rl }              # dqn
+  - { id: "1502.05477", area: rl }             # trpo
+  - { id: "1509.02971", area: rl }             # ddpg
+  - { id: "1707.06347", area: rl }             # ppo
+  - { id: "1801.01290", area: rl }             # sac
+  - { id: "1706.03741", area: rl }             # rl from human preferences
+  - { id: "1712.01815", area: rl }             # alphazero
