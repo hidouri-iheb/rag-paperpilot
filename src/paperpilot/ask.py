@@ -12,6 +12,7 @@ from paperpilot.retrieval.retriever import load_retriever
 BADGES = {
     "direct": "✅ answered directly",
     "corrected": "🔄 answered after a corrected search",
+    "general": "◇ general knowledge, not from the library",
     "refused": "⚠️ not enough evidence",
 }
 
@@ -39,6 +40,10 @@ def main() -> None:
         llm.close()
 
     print(f"\n{BADGES[path]}\n\n{final.answer}")
+    if path == "general":
+        print(
+            "\n(nothing in the library covers this; this answer has no sources and is unverified)"
+        )
     for i, c in enumerate(final.citations, start=1):
         print(f'\n[{i}] {c.title} ({c.year}), p.{c.page}\n    "{c.quote}"\n    {c.url}')
     print(f"\n(gemini calls: {llm.api_calls}, dropped citations: {final.dropped_citations})")

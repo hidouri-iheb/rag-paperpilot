@@ -61,6 +61,9 @@ class Settings(BaseSettings):
     grade_high: float = 0.95  # placeholder: tuned on the eval set in Phase 8
     grade_low: float = 0.05  # placeholder: tuned on the eval set in Phase 8
     max_retries: int = 1
+    allow_general_answers: bool = True  # answer from general knowledge
+    # --- Phase 11: UI ---
+    api_url: str = "http://127.0.0.1:8000"
 
     # --- Derived paths (computed from data_dir, so one setting moves them all) ---
     @property

@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, computed_field
 
 
@@ -73,3 +75,4 @@ class FinalAnswer(BaseModel):
     refused: bool
     reason: str | None = None
     dropped_citations: int = 0
+    source: Literal["library", "general"] = "library"

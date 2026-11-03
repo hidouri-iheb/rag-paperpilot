@@ -1,8 +1,9 @@
 """Corrective RAG as an explicit LangGraph.
 
-retrieve -> grade -> generate -> verify            path: direct (or corrected after a rewrite)
-              |-> rewrite -> retrieve -> grade      at most max_retries rewrites
-              |-> refuse                            path: refused
+retrieve -> grade -> generate -> verify           path: direct, or corrected after a rewrite
+              |-> rewrite -> retrieve -> grade     at most max_retries rewrites, also after a
+              |                                    refused answer
+              |-> refuse -> general answer?        path: general (unverified) or refused
 """
 
 import logging
@@ -14,7 +15,12 @@ from pydantic import BaseModel
 from paperpilot.config import Settings
 from paperpilot.generation.generator import draft_answer
 from paperpilot.generation.llm import LLM
-from paperpilot.generation.prompts import GRADE_PROMPT, REWRITE_PROMPT, format_context
+from paperpilot.generation.prompts import (
+    GENERAL_PROMPT,
+    GRADE_PROMPT,
+    REWRITE_PROMPT,
+    format_context,
+)
 from paperpilot.generation.verify import REFUSAL, verify
 from paperpilot.models import Answer, FinalAnswer, RetrievedChunk
 
@@ -29,6 +35,11 @@ class RewrittenQuery(BaseModel):
     query: str
 
 
+class GeneralAnswer(BaseModel):
+    in_scope: bool  # about AI, ML, data science or computer science?
+    answer: str
+
+
 class CragState(TypedDict, total=False):
     question: str  # what the user asked, used for grading and answering
     query: str  # what we search with, may get rewritten
@@ -37,7 +48,8 @@ class CragState(TypedDict, total=False):
     retries: int
     draft: Answer
     final: FinalAnswer
-    path: str  # "direct", "corrected" or "refused"
+    path: str  # "direct", "corrected", "general" or "refused"
+    allow_general: bool  # per-request override of allow_general_answers
 
 
 def build_crag(retriever, llm: LLM, s: Settings):
@@ -65,14 +77,7 @@ def build_crag(retriever, llm: LLM, s: Settings):
         if state["verdict"] == "relevant":
             return "generate"
         return "rewrite" if state["retries"] < s.max_retries else "refuse"
-    
-    def after_verify(state: CragState) -> str:
-        # the answer step can also find the evidence insufficient: try one better query first
-        if state["final"].refused and state["retries"] < s.max_retries:
-            log.info("verify: answer refused, rewriting the query")
-            return "rewrite"
-        return END
-    
+
     def rewrite(state: CragState) -> CragState:
         prompt = REWRITE_PROMPT.format(question=state["question"])
         query = llm.generate(s.gemini_light_model, prompt, RewrittenQuery).query
@@ -92,14 +97,31 @@ def build_crag(retriever, llm: LLM, s: Settings):
             path = "direct"
         return {"final": final, "path": path}
 
+    def after_verify(state: CragState) -> str:
+        if not state["final"].refused:
+            return END
+        if state["retries"] < s.max_retries:
+            log.info("verify: answer refused, rewriting the query")
+            return "rewrite"
+        return "refuse"
+
     def refuse(state: CragState) -> CragState:
-        final = FinalAnswer(
+        refusal = FinalAnswer(
             answer=REFUSAL,
             citations=[],
             refused=True,
-            reason="retrieval stayed weak after rewriting the query",
+            reason="the library has no evidence for this question",
         )
-        return {"final": final, "path": "refused"}
+        if not state.get("allow_general", s.allow_general_answers):
+            return {"final": refusal, "path": "refused"}
+        prompt = GENERAL_PROMPT.format(question=state["question"])
+        general = llm.generate(s.gemini_light_model, prompt, GeneralAnswer)
+        if not general.in_scope or not general.answer.strip():
+            log.info("general: out of scope, refusing")
+            return {"final": refusal, "path": "refused"}
+        log.info("general: answered from general knowledge (unverified)")
+        final = refusal.model_copy(update={"answer": general.answer.strip(), "source": "general"})
+        return {"final": final, "path": "general"}
 
     graph = StateGraph(CragState)
     graph.add_node("retrieve", retrieve)
@@ -116,12 +138,16 @@ def build_crag(retriever, llm: LLM, s: Settings):
     )
     graph.add_edge("rewrite", "retrieve")
     graph.add_edge("generate", "verify")
-    graph.add_conditional_edges("verify", after_verify, {"rewrite": "rewrite", END: END})
-    graph.add_edge("refuse", END)
+    graph.add_conditional_edges(
+        "verify", after_verify, {"rewrite": "rewrite", "refuse": "refuse", END: END}
+    )
     graph.add_edge("refuse", END)
     return graph.compile()
 
 
-def run_crag(app, question: str) -> tuple[FinalAnswer, str]:
-    state = app.invoke({"question": question, "query": question, "retries": 0})
-    return state["final"], state["path"]
+def run_crag(app, question: str, allow_general: bool | None = None) -> tuple[FinalAnswer, str]:
+    state: CragState = {"question": question, "query": question, "retries": 0}
+    if allow_general is not None:
+        state["allow_general"] = allow_general
+    result = app.invoke(state)
+    return result["final"], result["path"]

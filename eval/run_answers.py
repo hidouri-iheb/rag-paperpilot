@@ -161,9 +161,7 @@ def main() -> None:
         llm.close()
 
     summaries = {name: summarize(rows) for name, rows in results.items()}
-    print(
-        "\n| config | answered | cited gold | refusal acc | cit. validity | faithful | calls/q |"
-    )
+    print("\n| config | answered | cited gold | refusal acc | cit. validity | faithful | calls/q |")
     print("|---|---|---|---|---|---|---|")
     for name, m in summaries.items():
         calls = "n/a" if m["llm_calls_per_q"] is None else f"{m['llm_calls_per_q']:.2f}"
